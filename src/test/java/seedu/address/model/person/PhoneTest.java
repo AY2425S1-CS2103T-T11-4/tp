@@ -31,7 +31,7 @@ public class PhoneTest {
     }
 
     @Test
-    public void constructor_validPhone_withSpaces_createsPhone() {
+    public void constructor_validPhoneWithSpaces_createsPhone() {
         Phone longPhoneWithSpaces = new Phone(" 93121534  ");
         assertTrue(longPhoneWithSpaces.equals(new Phone("93121534"))); // Should equal the trimmed version
 
