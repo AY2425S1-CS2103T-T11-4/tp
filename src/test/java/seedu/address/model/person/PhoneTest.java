@@ -19,6 +19,22 @@ public class PhoneTest {
         assertThrows(IllegalArgumentException.class, () -> new Phone(invalidPhone));
     }
 
+
+    @Test
+    public void constructor_validPhone_withSpaces() {
+        Phone phoneWithSpaces = new Phone(" 911 ");
+        assertTrue(phoneWithSpaces.equals(new Phone("911"))); // Should equal the trimmed version
+
+        Phone longPhoneWithSpaces = new Phone(" 93121534  ");
+        assertTrue(longPhoneWithSpaces.equals(new Phone("93121534"))); // Should equal the trimmed version
+
+        Phone mixedSpaces1 = new Phone("  1234 5678 ");
+        assertTrue(mixedSpaces1.equals(new Phone("12345678")));
+
+        Phone mixedSpaces2 = new Phone("   98 76 54 32 ");
+        assertTrue(mixedSpaces2.equals(new Phone("98765432")));
+    }
+
     @Test
     public void constructor_validPhone_withSpaces_createsPhone() {
         Phone longPhoneWithSpaces = new Phone(" 93121534  ");
@@ -41,6 +57,7 @@ public class PhoneTest {
         assertFalse(Phone.isValidPhone("12345678")); // does not start with 3/6/8/9
         assertFalse(Phone.isValidPhone("124293842033123")); // long phone numbers
         assertFalse(Phone.isValidPhone("9312 1534")); // spaces within digits
+        assertFalse(Phone.isValidPhone(" 9312 1534 ")); //spaces around digits
 
 
         // valid phone numbers
