@@ -29,15 +29,6 @@ public class PhoneTest {
         Phone mixedSpaces2 = new Phone("   98 76 54 32 ");
         assertTrue(mixedSpaces2.equals(new Phone("98765432")));
     }
-
-    @Test
-    public void constructor_validPhoneWithSpaces_createsPhone() {
-        Phone longPhoneWithSpaces = new Phone(" 93121534  ");
-        assertTrue(longPhoneWithSpaces.equals(new Phone("93121534"))); // Should equal the trimmed version
-
-        Phone mixedSpaces2 = new Phone("   98 76 54 32 ");
-        assertTrue(mixedSpaces2.equals(new Phone("98765432")));
-    }
     @Test
     public void isValidPhone() {
         // null phone number
